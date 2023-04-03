@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'todo'
+    # 'todo' is the app we created and need to add to this list so django
+    # look inside that app folder for a templates directory.
 ]
 
 MIDDLEWARE = [

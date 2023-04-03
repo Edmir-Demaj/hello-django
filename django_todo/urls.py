@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from todo.views import say_hello
+from todo.views import get_todo_list
 # import python function say_hello() from views.py file inside todo app
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', say_hello, name='hello')
+    path('', get_todo_list, name='get_todo_list')
     # path function takes 3 arguments: 1-url,which user is going to type in
     # the view.py function which is going to return
     # name parameter as well
