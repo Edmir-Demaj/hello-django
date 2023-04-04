@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from todo.views import get_todo_list
+from todo.views import get_todo_list, add_item
 # import python function say_hello() from views.py file inside todo app
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_todo_list, name='get_todo_list')
+    path('', get_todo_list, name='get_todo_list'),  # don't forget comma
     # path function takes 3 arguments: 1-url,which user is going to type in
     # the view.py function which is going to return
     # name parameter as well
+    path('add', add_item, name='add_item')  # new url path
 ]

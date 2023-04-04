@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Add ToDo item:</h1>
+    <form action="add" method="POST">
+        {% csrf_token %}
+        <!-- add is the url we going to submit the form to -->
+        <div>
+            <p>
+                <label for="id_name">Name:</label>
+                <!-- using name attr will access its input value from form -->
+                <!-- using ID for css or label -->
+                <input type="text" name="item_name" id="id_name">
+            </p>
+        </div>
+        <div>
+            <p>
+                <label for="id_done">Done:</label>
+                <!-- using name attr will access its input value from form -->
+                <!-- using ID for css or label -->
+                <input type="checkbox" name="done" id="id_done">
+            </p>
+        </div>
+        <div>
+            <p>
+                <button type="submit">Add Item</button>
+            </p>
+        </div>
+    </form>
+
+</body>
+
+</html>

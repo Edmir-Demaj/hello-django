@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Item
 # Create your views here.
 
@@ -19,3 +19,16 @@ def get_todo_list(request):
 #     return HttpResponse("Hello!")
 
 # to make this function available to web browser we use urls.py
+
+def add_item(request):
+    if request.method == 'POST':
+        # check which method is requested get/post
+        # if is post then get the value of name and
+        # the boolean value of done
+        name = request.POST.get('item_name')
+        done = 'done' in request.POST
+        # checks if post data has done property in it
+        Item.objects.create(name=name, done=done)
+        return redirect('get_todo_list')
+
+    return render(request, 'todo/add_item.html')
