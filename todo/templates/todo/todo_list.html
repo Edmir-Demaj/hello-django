@@ -19,6 +19,25 @@
             {% else %}
             <td>{{ item.name }}</td>
             {% endif %}
+            <td>
+                <a href="/toogle/{{ item.id }}">
+                    <!-- this link point to toogle page and will append 
+                    items id wich is auto generated from django -->
+                    <button>Toogle</button>
+                </a>
+            </td>
+            <td>
+                <a href="/edit/{{ item.id }}">
+                    <!-- this link point to edit page and will append 
+                    items id wich is auto generated from django -->
+                    <button>Edit</button>
+                </a>
+            </td>
+            <td>
+                <a href="/delete/{{ item.id }}">
+                    <button>Delete</button>
+                </a>
+            </td>
         </tr>
         {% empty %}
         <tr>
