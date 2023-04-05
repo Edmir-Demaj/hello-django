@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Item
+from .forms import ItemForm
 # Create your views here.
 
 
@@ -25,10 +26,18 @@ def add_item(request):
         # check which method is requested get/post
         # if is post then get the value of name and
         # the boolean value of done
-        name = request.POST.get('item_name')
-        done = 'done' in request.POST
+        form = ItemForm(request.POST)  # create form instance
+        if form.is_valid():  # validate form
+            form.save()  # save form
+        # name = request.POST.get('item_name')
+        # done = 'done' in request.POST
         # checks if post data has done property in it
-        Item.objects.create(name=name, done=done)
-        return redirect('get_todo_list')
+        # Item.objects.create(name=name, done=done)
+            return redirect('get_todo_list')
+    form = ItemForm()  # this is an instance of class ItemForm
+    context = {
+        'form': form  # context contain form itself
+    }
 
-    return render(request, 'todo/add_item.html')
+    return render(request, 'todo/add_item.html', context)
+    # return the context to template to render
