@@ -26,6 +26,6 @@ urlpatterns = [
     # name parameter as well
     path('add', views.add_item, name='add_item'),  # new url path
     path('edit/<item_id>', views.edit_item, name='edit'),
-    path('toogle/<item_id>', views.toogle_item, name='toogle'),
+    path('toggle/<item_id>', views.toggle_item, name='toggle'),
     path('delete/<item_id>', views.delete_item, name='delete')
 ]

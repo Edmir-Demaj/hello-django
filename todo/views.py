@@ -60,7 +60,7 @@ def edit_item(request, item_id):
     return render(request, 'todo/edit_item.html', context)
 
 
-def toogle_item(request, item_id):
+def toggle_item(request, item_id):
     # when item is toogled the view will get the item and change status
     item = get_object_or_404(Item, id=item_id)
     item.done = not item.done
